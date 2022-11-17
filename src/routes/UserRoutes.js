@@ -6,7 +6,11 @@ import Favorites from '../views/Favorites';
 export default function UserRoutes({ user }) {
   return (
     <Switch>
-      <Route exact path="/favorites" component={() => <Favorites user={user} />} />
+      <Route
+        exact
+        path="/favorites"
+        component={() => <Favorites user={user} />}
+      />
     </Switch>
   );
 }
