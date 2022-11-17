@@ -1,9 +1,9 @@
-# the tattooist  [[![Netlify Status](https://api.netlify.com/api/v1/badges/7220a1a8-e8de-4748-b706-d403e0753337/deploy-status)](https://app.netlify.com/sites/the-tattooist/deploys)]
+# the tattooist v2  [![Netlify Status](https://api.netlify.com/api/v1/badges/37fb036f-7f36-4267-8c1b-ccf71f8a4be4/deploy-status)](https://app.netlify.com/sites/thetattooist-v2/deploys)
 <!-- update the netlify badge above with your own badge that you can find at netlify under settings/general#status-badges -->
 
 
 
-[View App](https://the-tattooist.netlify.app)
+[View App](https://thetattooist-v2.netlify.app)
 
 ## Get Started <!-- OPTIONAL, but doesn't hurt -->
 
@@ -29,7 +29,7 @@ const getFavoritedArtists = (user) => new Promise((resolve, reject) => {
 
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
-- [Check out the deployed site](https://the-tattooist.netlify.app)
+- [Check out the deployed site](https://the-tattooist-v2.netlify.app)
 - [Wireframes](https://www.figma.com/file/KfctDlzX6eC467EkF0LTTF/theTattooist?node-id=1%3A3)
 - [Project Board](https://github.com/elle-lawrence/thetattooist/projects/1)
 
