@@ -6,6 +6,7 @@
 // import SignOutButton from './buttons/SignOutButton';
 // import SignInButton from './buttons/SignInButton';
 import * as React from 'react';
+import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import BottomNavigation from '@mui/material/BottomNavigation';
@@ -16,15 +17,22 @@ import BungalowIcon from '@mui/icons-material/Bungalow';
 import Paper from '@mui/material/Paper';
 
 export default function Navigation() {
-  const [value, setValue] = React.useState('recents');
-  const ref = React.useRef(null);
+  const [value, setValue] = React.useState(0);
+  const history = useHistory();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    if (newValue === 'home') {
+      history.push('/home');
+    } if (newValue === 'favorites') {
+      history.push('/favorites');
+    } if (newValue === 'profile') {
+      history.push('/profile');
+    }
   };
 
   return (
-    <Box sx={{ pb: 7 }} ref={ref}>
+    <Box sx={{ pb: 7 }}>
       <CssBaseline />
       <Paper
         sx={{
@@ -38,17 +46,17 @@ export default function Navigation() {
           onChange={handleChange}
         >
           <BottomNavigationAction
-            label="Favorites"
+            label="favs"
             value="favorites"
             icon={<FavoriteIcon />}
           />
           <BottomNavigationAction
-            label="Home"
+            label="home"
             value="home"
             icon={<BungalowIcon />}
           />
           <BottomNavigationAction
-            label="Profile"
+            label="profile"
             value="profile"
             icon={<AccountCircleIcon />}
           />
