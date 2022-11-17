@@ -15,7 +15,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import BungalowIcon from '@mui/icons-material/Bungalow';
 import Paper from '@mui/material/Paper';
 
-export default function FixedBottomNavigation() {
+export default function Navigation() {
   const [value, setValue] = React.useState('recents');
   const ref = React.useRef(null);
 
@@ -133,47 +133,3 @@ export default function FixedBottomNavigation() {
 // Navigation.defaultProps = {
 //   user: null,
 // };
-
-
-PROFILE
-
-import React from 'react';
-import PropTypes from 'prop-types';
-import { VscDiffAdded } from 'react-icons/vsc';
-import { Link } from 'react-router-dom';
-import SignOutButton from '../components/buttons/SignOutButton';
-import SignInButton from '../components/buttons/SignInButton';
-
-export default function Profile({ user }) {
-  return (
-    <>
-      {user ? (
-        <h2>
-          PROFILE Here
-        </h2>
-      ) : (<h2>no</h2>)}
-      {user ? (
-        <>
-          <SignOutButton />
-        </>
-      ) : (
-        <SignInButton />
-      )}
-      {user?.isAdmin ? (
-        <>
-          <Link className="linkStyling" to="/add">
-            <VscDiffAdded />
-          </Link>
-        </>
-      ) : (
-        <></>)}
-    </>
-  );
-}
-Profile.propTypes = {
-  user: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-};
-
-Profile.defaultProps = {
-  user: null,
-};

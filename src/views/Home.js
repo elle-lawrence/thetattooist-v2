@@ -5,6 +5,8 @@ import SearchGenderButton from '../components/buttons/SearchGenderButton';
 import SearchNameButton from '../components/buttons/SearchNameButton';
 import SeeFavoritesButton from '../components/buttons/SeeFavoritesButton';
 import ShowAllButton from '../components/buttons/ShowAllButton';
+import SignOutButton from '../components/buttons/SignOutButton';
+import SignInButton from '../components/buttons/SignInButton';
 
 const GroupButtonStyling = styled.div`
   display: flex;
@@ -20,6 +22,13 @@ const GroupButtonStyling = styled.div`
 export default function Home({ user }) {
   return (
     <>
+      {user ? (
+        <>
+          <SignOutButton />
+        </>
+      ) : (
+        <SignInButton />
+      )}
       <div className="titleDiv">
         <p className="title">the tattooist</p>
       </div>
