@@ -58,6 +58,7 @@ const theme = createTheme({
     },
     h4: {
       fontFamily: 'Nunito',
+      color: '#e23976',
     },
     subtitle1: {
       fontFamily: 'Nunito',

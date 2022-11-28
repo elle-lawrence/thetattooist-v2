@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ArtistCard from '../components/ArtistCard';
+import ArtistCard from '../components/ArtistCardCopyCopy';
 import { getAllArtists } from '../api/data/artists';
-import SearchButtonGroup from '../components/buttons/SearchButtonGroup';
+import FindYourArtistBtn from '../components/buttons/FindYourArtistBtn';
 
 const GroupButtonStyling = styled.div`
   display: flex;
@@ -42,9 +42,7 @@ function ShowAllArtists({ user }) {
 
   return (
     <div>
-      <GroupButtonStyling>
-        <SearchButtonGroup user={user} />
-      </GroupButtonStyling>
+      <FindYourArtistBtn />
       <CardContainerStyling>
         {allArtists.map((artist) => (
           <ArtistCard
