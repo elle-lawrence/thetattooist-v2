@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import ArtistNameBar from './ArtistNameBar';
 
 const DetailsContainer = styled.div`
   display: flex;
@@ -30,33 +29,26 @@ export default function ArtistDetails({ singleArtist }) {
   return (
     <>
       <DetailsContainer>
-        <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="true">
-          <div className="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1" />
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" />
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" />
-          </div>
+        {/* <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img src={singleArtist.img1} className="d-block w-100" alt="..." />
+              <img src="..." className="d-block w-100" alt="..." />
             </div>
             <div className="carousel-item">
-              <img src={singleArtist.img2} className="d-block w-100" alt="..." />
+              <img src="..." className="d-block w-100" alt="..." />
             </div>
             <div className="carousel-item">
-              <img src={singleArtist.img3} className="d-block w-100" alt="..." />
+              <img src="..." className="d-block w-100" alt="..." />
             </div>
           </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true" />
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true" />
-            <span className="visually-hidden">Next</span>
-          </button>
-        </div>
-        <ArtistNameBar singleArtist={singleArtist} />
+        </div> */}
+        <img
+          src={singleArtist.thumbnailImg}
+          className="card-img-top"
+          alt="thumbnail of Artist"
+          height="500"
+          // width=""
+        />
         <div className="infoDiv">
           <h3>{singleArtist.name}</h3>
           <a className="clickLink" href={singleArtist.shopUrl}>{singleArtist.shopName}</a>
@@ -88,8 +80,5 @@ ArtistDetails.propTypes = {
     shopUrl: PropTypes.string,
     portfolioUrl: PropTypes.string,
     thumbnailImg: PropTypes.string,
-    img1: PropTypes.string,
-    img2: PropTypes.string,
-    img3: PropTypes.string,
   }).isRequired,
 };

@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { getFavoritedArtists } from '../api/data/favoritesData';
 import FavCard from '../components/FavCard';
-import { CardContainerStyling, GroupButtonStyling } from './ShowAllArtists';
-import SearchButtonGroup from '../components/buttons/SearchButtonGroup';
+import { CardContainerStyling } from './ShowAllArtists';
 
 export default function FavoritesView({ user }) {
   const [favoritedArtists, setFavoritedArtists] = useState([]);
@@ -19,9 +18,6 @@ export default function FavoritesView({ user }) {
 
   return (
     <>
-      <GroupButtonStyling>
-        <SearchButtonGroup />
-      </GroupButtonStyling>
       <CardContainerStyling>
         {favoritedArtists.map((favArtist) => (
           <FavCard

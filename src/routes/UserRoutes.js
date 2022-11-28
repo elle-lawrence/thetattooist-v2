@@ -6,8 +6,9 @@ import Favorites from '../views/Favorites';
 import { ShowAllArtists } from '../views/ShowAllArtists';
 import ArtistsDetailsView from '../views/ArtistDetailsView';
 import SearchName from '../views/SearchName';
-import SearchGender from '../views/SearchGender';
+// import SearchGender from '../views/SearchGender';
 import ProfileView from '../views/ProfileView';
+import SearchView from '../views/SearchView';
 
 export default function UserRoutes({ user }) {
   return (
@@ -31,7 +32,7 @@ export default function UserRoutes({ user }) {
       <Route
         exact
         path="/searchgender"
-        component={() => <SearchGender user={user} />}
+        component={() => <SearchView user={user} />}
       />
       <Route
         exact
