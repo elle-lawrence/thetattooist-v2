@@ -26,8 +26,8 @@ function Initialize() {
 
   return (
     <>
-      <Navigation user={user} />
       <Routes user={user} />
+      <Navigation user={user} />
     </>
   );
 }

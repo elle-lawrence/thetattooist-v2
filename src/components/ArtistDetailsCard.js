@@ -1,6 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import EditArtistBar from './EditArtistBar';
 import ArtistNameBar from './ArtistNameBar';
 
 const DetailsContainer = styled.div`
@@ -26,7 +34,24 @@ const DetailsContainer = styled.div`
 
 `;
 
-export default function ArtistDetails({ singleArtist }) {
+export default function ArtistDetailsCard({ singleArtist, user }) {
+  function createData(title, data) {
+    return {
+      title, data,
+    };
+  }
+
+  const rows = [
+    createData('location:', `${singleArtist.city}, ${singleArtist.state}`),
+    createData('gender:', `${singleArtist.gender}`),
+    createData('sexuality:', `${singleArtist.sexuality}`),
+    createData('shop:', `${singleArtist.shopName}`),
+    createData('how to book:', `${singleArtist.howToBook}`),
+    createData('hrly:', `${singleArtist.hourlyRt}`),
+    createData('yrs exp:', `${singleArtist.yrsExp}`),
+    createData('exp w/ melanin skin:', `${singleArtist.expMelaninSkin}`),
+  ];
+
   return (
     <>
       <DetailsContainer>
@@ -58,29 +83,55 @@ export default function ArtistDetails({ singleArtist }) {
         </div>
         <ArtistNameBar singleArtist={singleArtist} />
         <div className="infoDiv">
-          <h3>{singleArtist.name}</h3>
-          <a className="clickLink" href={singleArtist.shopUrl}>{singleArtist.shopName}</a>
-          <h5>{singleArtist.city}</h5>
-          <h5>{singleArtist.gender}</h5>
-          <h5>{singleArtist.orientation}</h5>
-          <h5>${singleArtist.hourlyRt}</h5>
-          <a className="clickLink" href={singleArtist.instagram}>instagram</a><br />
-          <a className="clickLink" href={singleArtist.portfolioUrl}>portfolio</a>
-          <h5>{singleArtist.availability}</h5>
+          <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 380 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>About Me:</TableCell>
+                  <TableCell align="right" />
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows.map((row) => (
+                  <TableRow
+                    key={row.title}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {row.title}
+                    </TableCell>
+                    <TableCell align="right">{row.data}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </div>
-
+        <div>
+          {user?.isAdmin ? (
+            <>
+              <EditArtistBar
+                singleArtist={singleArtist}
+              />
+            </>
+          ) : (
+            <>
+              Not admin
+            </>
+          )}
+        </div>
       </DetailsContainer>
     </>
   );
 }
 
-ArtistDetails.propTypes = {
+ArtistDetailsCard.propTypes = {
   singleArtist: PropTypes.shape({
     name: PropTypes.string,
     firebaseKey: PropTypes.string,
     city: PropTypes.string,
     gender: PropTypes.string,
-    orientation: PropTypes.string,
+    sexuality: PropTypes.string,
     hourlyRt: PropTypes.string,
     instagram: PropTypes.string,
     availability: PropTypes.string,
@@ -91,5 +142,16 @@ ArtistDetails.propTypes = {
     img1: PropTypes.string,
     img2: PropTypes.string,
     img3: PropTypes.string,
+    bio: PropTypes.string,
+    expMelaninSkin: PropTypes.bool,
+    state: PropTypes.string,
+    yrsExp: PropTypes.number,
+    howToBook: PropTypes.string,
   }).isRequired,
+  user: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+
+};
+
+ArtistDetailsCard.defaultProps = {
+  user: null,
 };

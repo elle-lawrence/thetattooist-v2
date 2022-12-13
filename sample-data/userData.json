@@ -1,26 +1,22 @@
 {
-    "user1" : {
-        "firebaseKey" : "e1",
-        "name" : "Elle Lawrence",
-        "homeImage" : ".jpeg",
-        "uid" : ""
+    "sLpoAepLXXR8c1vKVB15dy8rbwm1": {
+      "city": "Pensacola",
+      "state": "FL",
+      "firebaseKey": "sLpoAepLXXR8c1vKVB15dy8rbwm1",
+      "homeImage": "image.png",
+      "name": "Elle Admin",
+      "sexuality": "queer",
+      "gender": "female",
+      "pronouns": "she/her/hers"
     },
-    "user2" : {
-        "firebaseKey" : "e2",
-        "name" : "Elle Lawrence",
-        "homeImage" : ".jpeg",
-        "uid" : ""
-    },
-    "user3" : {
-        "firebaseKey" : "e3",
-        "name" : "Elle Lawrence",
-        "homeImage" : ".jpeg",
-        "uid" : ""
-    },
-    "user4" : {
-        "firebaseKey" : "e4",
-        "name" : "Elle Lawrence",
-        "homeImage" : ".jpeg",
-        "uid" : ""
+    "eg0sUYirutOOYZVLjQLEbJNj1Bb2": {
+      "city": "Nashville",
+      "state": "TN",
+      "firebaseKey": "eg0sUYirutOOYZVLjQLEbJNj1Bb2",
+      "homeImage": ".jpeg",
+      "name": "Ayla Jonas",
+      "sexuality": "queer",
+      "gender": "female",
+      "pronouns": "she/her/hers"
     }
 }

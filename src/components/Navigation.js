@@ -1,5 +1,5 @@
 // import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';
 // import styled from 'styled-components';
 // import { VscDiffAdded } from 'react-icons/vsc';
@@ -16,7 +16,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import BungalowIcon from '@mui/icons-material/Bungalow';
 import Paper from '@mui/material/Paper';
 
-export default function Navigation() {
+export default function Navigation({ user }) {
   const [value, setValue] = React.useState(0);
   const history = useHistory();
 
@@ -27,7 +27,7 @@ export default function Navigation() {
     } if (newValue === 'favorites') {
       history.push('/favorites');
     } if (newValue === 'profile') {
-      history.push('/profile');
+      history.push(`/profiles/${user.uid}`);
     }
   };
 
@@ -134,10 +134,10 @@ export default function Navigation() {
 //   );
 // }
 
-// Navigation.propTypes = {
-//   user: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-// };
+Navigation.propTypes = {
+  user: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+};
 
-// Navigation.defaultProps = {
-//   user: null,
-// };
+Navigation.defaultProps = {
+  user: null,
+};

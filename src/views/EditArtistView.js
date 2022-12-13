@@ -4,13 +4,14 @@ import { useParams } from 'react-router-dom';
 import Form from '../components/Form';
 import { getSingleArtist } from '../api/data/artists';
 
-export default function EditArtist() {
+export default function EditArtistView() {
   const [editArtist, setEditArtist] = useState({});
-  const { firebaseKey } = useParams();
+  const { firebase } = useParams();
 
   useEffect(() => {
+    console.warn(firebase);
     let isMounted = true;
-    getSingleArtist(firebaseKey).then((artist) => {
+    getSingleArtist(firebase).then((artist) => {
       if (isMounted) setEditArtist(artist);
     });
     return () => {

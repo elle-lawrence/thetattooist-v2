@@ -71,6 +71,7 @@ export default function FavCard({ favArtist, user }) {
               srcSet={`${favArtist.thumbnailImg}?w=900&fit=crop&auto=format&dpr=2 2x`}
               alt="thumbnail of Artist"
               loading="lazy"
+              style={{ height: '100%', objectFit: 'scale-down' }}
             />
           </Link>
           <ImageListItemBar

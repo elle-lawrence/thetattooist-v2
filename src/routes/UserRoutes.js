@@ -23,7 +23,7 @@ export default function UserRoutes({ user }) {
         path="/artists"
         component={() => <ShowAllArtists user={user} />}
       />
-      <Route exact path="/artists/:key" component={ArtistsDetailsView} />
+      <Route exact path="/artists/:key" component={() => <ArtistsDetailsView user={user} />} />
       <Route
         exact
         path="/searchname"
@@ -41,7 +41,7 @@ export default function UserRoutes({ user }) {
       />
       <Route
         exact
-        path="/profile"
+        path="/profiles/:firebaseKey"
         component={() => <ProfileView user={user} />}
       />
     </Switch>
