@@ -20,7 +20,6 @@ import FavoriteCheck from './FavoriteCheck';
 export default function ArtistCard({
   artist,
   // firebaseKey,
-  // setAllArtists,
   favArtist,
   user,
 }) {
@@ -55,6 +54,7 @@ export default function ArtistCard({
             srcSet={`${artist.thumbnailImg}?w=400&fit=crop&auto=format&dpr=2 2x`}
             alt="thumbnail of Artist"
             loading="lazy"
+            style={{ height: 400, objectFit: 'scale-down' }}
           />
         </Link>
         <ImageListItemBar

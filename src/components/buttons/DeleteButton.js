@@ -1,23 +1,50 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { VscTrash } from 'react-icons/vsc';
+// import { VscTrash } from 'react-icons/vsc';
+import { IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { deleteArtist } from '../../api/data/artists';
 
-const AdminButtonStyling = styled.button`
-  .btn-style {
-    border: none;
-    color: white;
-    font-family: 'Nunito', sans-serif;
-  }
-`;
+// const AdminButtonStyling = styled.button`
+//   .btn-style {
+//     border: none;
+//     color: white;
+//     font-family: 'Nunito', sans-serif;
+//   }
+// `;
 
-export default function DeleteButton({ firebaseKey, setAllItems }) {
+export default function DeleteButton({ firebaseKey, setResetAllArtists }) {
   const history = useHistory();
   return (
     <>
-      <AdminButtonStyling
+      <IconButton
+        aria-label="delete"
+        color="secondary"
+        onClick={() => {
+          deleteArtist(firebaseKey).then((allArtists) => {
+            setResetAllArtists(allArtists);
+            history.push('/artists');
+          });
+        }}
+      >
+        <DeleteIcon />
+      </IconButton>
+      {/* <Button
+        variant="outlined"
+        color="secondary"
+        startIcon={<DeleteIcon />}
+        onClick={() => {
+          deleteArtist(firebaseKey).then((allItems) => {
+            setAllItems(allItems);
+            history.push('/artists');
+          });
+        }}
+      >
+        Delete
+      </Button> */}
+      {/* <AdminButtonStyling
         type="button"
         className="btn-style btn-outline-dark btn"
         onClick={() => {
@@ -26,19 +53,19 @@ export default function DeleteButton({ firebaseKey, setAllItems }) {
             history.push('/artists');
           });
         }}
-      >
-        <VscTrash />
-      </AdminButtonStyling>
+      > */}
+      {/* <VscTrash />
+      </AdminButtonStyling> */}
     </>
   );
 }
 
 DeleteButton.propTypes = {
   firebaseKey: PropTypes.string,
-  setAllItems: PropTypes.func,
+  setResetAllArtists: PropTypes.func,
 };
 
 DeleteButton.defaultProps = {
   firebaseKey: '',
-  setAllItems: () => {},
+  setResetAllArtists: () => {},
 };
