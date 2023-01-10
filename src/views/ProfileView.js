@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Link, useParams } from 'react-router-dom';
-import { VscDiffAdded } from 'react-icons/vsc';
+import { useParams } from 'react-router-dom';
+import Link from '@mui/material/Link';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
@@ -17,6 +16,9 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import { Stack } from '@mui/material';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import Box from '@mui/material/Box';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import SignInButton from '../components/buttons/SignInButton';
 import SignOutButton from '../components/buttons/SignOutButton';
 import { getUser } from '../api/data/userData';
@@ -26,10 +28,8 @@ export default function ProfileView({ user }) {
   const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
-    console.warn(firebaseKey);
     // const userId = `${user.uid}`;
     getUser(firebaseKey).then(setUserInfo);
-    console.warn(`this is userInfo: ${userInfo}`);
     // let isMounted = true;
     // getUserInfo(user.uid).then((userObj) => {
     //   console.warn(userObj);
@@ -54,11 +54,11 @@ export default function ProfileView({ user }) {
   ];
   return (
     <>
-      <Card sx={{ maxWidth: 420 }}>
+      <Card sx={{ maxWidth: 430 }}>
         <CardMedia
           component="img"
-          height="340"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          height="430"
+          image={`${userInfo.profileImg}`}
           alt={`${userInfo.name}`}
         />
         <CardContent>
@@ -66,23 +66,23 @@ export default function ProfileView({ user }) {
             <Avatar
               alt={`${userInfo.name}`}
               src="/static/images/avatar/1.jpg"
-              sx={{ width: 56, height: 56 }}
+              sx={{ width: 76, height: 76, marginBottom: 5 }}
             />
-            <Typography variant="h5" component="div">
-              {userInfo.name}
-            </Typography>
-            <Typography variant="subtitle1" align="right" color="text.secondary">
-              {userInfo.pronouns}
-            </Typography>
+            <Stack
+              sx={{ marginLeft: 3 }}
+            >
+              <Typography variant="h4" component="div">
+                {userInfo.name}
+              </Typography>
+              <Typography variant="subtitle1" align="left" color="text">
+                ({userInfo.pronouns})
+              </Typography>
+            </Stack>
           </Stack>
-          <TableContainer component={Paper}>
+          <TableContainer
+            component={Paper}
+          >
             <Table sx={{ minWidth: 380 }} aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>About Me:</TableCell>
-                  <TableCell align="right" />
-                </TableRow>
-              </TableHead>
               <TableBody>
                 {rows.map((row) => (
                   <TableRow
@@ -99,26 +99,35 @@ export default function ProfileView({ user }) {
             </Table>
           </TableContainer>
         </CardContent>
-        <CardActions>
-          <Button size="small">Edit</Button>
-        </CardActions>
+        <CardActions />
       </Card>
+      <Box
+        sx={{ justifyContent: 'center', marginTop: 3 }}
+      >
+        {user ? (
+          <>
+            <SignOutButton />
+            <Button size="small" variant="outlined"><ModeEditIcon />Edit</Button>
+          </>
+        ) : (
+          <SignInButton />
+        )}
+        {user?.isAdmin ? (
+          <>
+            <Link
+              component="button"
+              variant="outlined"
+              className="linkStyling"
+              to="/add"
+              sx={{ color: 'primary' }}
+            >
+              <AddCircleIcon />
+            </Link>
+          </>
+        ) : (
+          <></>)}
+      </Box>
 
-      {user ? (
-        <>
-          <SignOutButton />
-        </>
-      ) : (
-        <SignInButton />
-      )}
-      {user?.isAdmin ? (
-        <>
-          <Link className="linkStyling" to="/add">
-            <VscDiffAdded />
-          </Link>
-        </>
-      ) : (
-        <></>)}
     </>
   );
 }

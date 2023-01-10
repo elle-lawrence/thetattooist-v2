@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { VscHeart } from 'react-icons/vsc';
+// import { VscHeart } from 'react-icons/vsc';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { createFavorite, getAllFavorites, deleteFavorite } from '../api/data/favoritesData';
 
 const Checkbox = styled.div`
   .checkboxStyle {
-    background-color: #1B1A1A;
+    background-color: #504848;
+
   }
 `;
 export default function FavoriteCheck({ artist, user }) {
@@ -49,7 +51,8 @@ export default function FavoriteCheck({ artist, user }) {
         htmlFor="btncheck1"
       > */}
       {/* </label> */}
-      <VscHeart />
+      {/* <VscHeart /> */}
+      <FavoriteIcon />
       <input
         type="checkbox"
         className="checkboxStyle form-check-input"

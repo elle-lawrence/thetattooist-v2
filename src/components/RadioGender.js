@@ -8,6 +8,7 @@ const RadioStyleDiv = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  margin-left: 5vw;
 
   .form-check-label {
     color: #555555;
@@ -27,8 +28,8 @@ export default function RadioGender({ setFilter, resetFilter }) {
       setFilter('female');
     } else if (value === 'male') {
       setFilter('male');
-    } else if (value === 'nonbinary') {
-      setFilter('nonbinary');
+    } else if (value === 'non-binary') {
+      setFilter('non-binary');
     }
   };
 
@@ -69,7 +70,7 @@ export default function RadioGender({ setFilter, resetFilter }) {
           className="form-check-input"
           type="radio"
           name="gender"
-          value="nonbinary"
+          value="non-binary"
           onChange={selectGender}
         />
         <label

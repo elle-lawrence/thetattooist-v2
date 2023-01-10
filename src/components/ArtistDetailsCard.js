@@ -5,19 +5,22 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
+// import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Typography } from '@mui/material';
 import EditArtistBar from './EditArtistBar';
 import ArtistNameBar from './ArtistNameBar';
+// import ArtistPicCarousel from './ArtistPicCarousel';
+// import ArtistImageList from './ArtistImageList';
 
 const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   row-gap: 30px;
-  padding-left: 10vw;
-  padding-right: 10vw;
+  // padding-left: 4vw;
+  // padding-right: 4vw;
   align-items: center;
 
   .infoDiv {
@@ -55,12 +58,14 @@ export default function ArtistDetailsCard({ singleArtist, user }) {
   return (
     <>
       <DetailsContainer>
+        {/* <ArtistImageList singleArtist={singleArtist} /> */}
+        {/* <ArtistPicCarousel singleArtist={singleArtist} /> */}
         <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="true">
-          <div className="carousel-indicators">
+          {/* <div className="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1" />
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" />
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" />
-          </div>
+          </div> */}
           <div className="carousel-inner">
             <div className="carousel-item active">
               <img src={singleArtist.img1} className="d-block w-100" alt="..." />
@@ -84,13 +89,13 @@ export default function ArtistDetailsCard({ singleArtist, user }) {
         <ArtistNameBar singleArtist={singleArtist} />
         <div className="infoDiv">
           <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 380 }} aria-label="simple table">
-              <TableHead>
+            <Table sx={{ minWidth: 400 }} aria-label="simple table">
+              {/* <TableHead>
                 <TableRow>
-                  <TableCell>About Me:</TableCell>
+                  <TableCell>About Me</TableCell>
                   <TableCell align="right" />
                 </TableRow>
-              </TableHead>
+              </TableHead> */}
               <TableBody>
                 {rows.map((row) => (
                   <TableRow
@@ -107,6 +112,9 @@ export default function ArtistDetailsCard({ singleArtist, user }) {
             </Table>
           </TableContainer>
         </div>
+        <Typography>
+          {singleArtist.bio}
+        </Typography>
         <div>
           {user?.isAdmin ? (
             <>

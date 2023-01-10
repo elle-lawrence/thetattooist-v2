@@ -4,19 +4,22 @@
       "state": "FL",
       "firebaseKey": "sLpoAepLXXR8c1vKVB15dy8rbwm1",
       "homeImage": "image.png",
-      "name": "Elle Admin",
+      "name": "elle admin",
       "sexuality": "queer",
       "gender": "female",
-      "pronouns": "she/her/hers"
+      "pronouns": "she/her/hers",
+      "profileImg": "https://avatars.githubusercontent.com/u/86808230?s=400&u=bf2179e39487ea1631f13fde25f46091dfabdbe0&v=4"
+      
     },
     "eg0sUYirutOOYZVLjQLEbJNj1Bb2": {
       "city": "Nashville",
       "state": "TN",
       "firebaseKey": "eg0sUYirutOOYZVLjQLEbJNj1Bb2",
       "homeImage": ".jpeg",
-      "name": "Ayla Jonas",
+      "name": "ayla jonas",
       "sexuality": "queer",
       "gender": "female",
-      "pronouns": "she/her/hers"
+      "pronouns": "she/her/hers",
+      "profileImg": "https://cdn.shopify.com/s/files/1/2353/0977/files/girl-with-tattoos-square400.jpg?v=1524679218"
     }
 }
