@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const SearchBarDiv = styled.div`
   display: flex;
-  width: 50vw;
+  width: 380px;
   justify-content: center;
   align-content: center; 
   margin-left: 5vw;

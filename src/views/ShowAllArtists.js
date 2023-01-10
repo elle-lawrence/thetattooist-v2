@@ -23,7 +23,6 @@ export const CardContainerStyling = styled.div`
   flex-wrap: wrap;
   align-content: space-between;
   justify-content: space-evenly;
-  box-shadow: 10px 10px 10px 0px;
 
 `;
 
@@ -42,7 +41,10 @@ function ShowAllArtists({ user }) {
 
   return (
     <div>
-      <FindYourArtistBtn />
+      <GroupButtonStyling>
+
+        <FindYourArtistBtn />
+      </GroupButtonStyling>
       <CardContainerStyling>
         {allArtists.map((artist) => (
           <ArtistCard

@@ -45,19 +45,19 @@ import FavoriteCheck from './FavoriteCheck';
 // `;
 
 export default function FavCard({ favArtist, user }) {
-  const subtitleText = `${favArtist.gender}, ${favArtist.orientation}`;
+  const subtitleText = `${favArtist.gender}, ${favArtist.sexuality}`;
 
   return (
     <>
       <ImageList
         sx={{
-          width: 420,
-          height: 450,
+          width: 400,
+          height: 410,
           borderRadius: '10px',
         }}
         cols={1}
       >
-        <ImageListItem key="Subheader" cols={2} />
+        <ImageListItem key="Subheader" cols={1} />
         {/* {artist.map((artist) => ( */}
         <ImageListItem
           key={favArtist.firebaseKey}
@@ -71,7 +71,7 @@ export default function FavCard({ favArtist, user }) {
               srcSet={`${favArtist.thumbnailImg}?w=900&fit=crop&auto=format&dpr=2 2x`}
               alt="thumbnail of Artist"
               loading="lazy"
-              style={{ height: '100%', objectFit: 'scale-down' }}
+              style={{ height: 400, objectFit: 'scale-down' }}
             />
           </Link>
           <ImageListItemBar
@@ -127,7 +127,7 @@ FavCard.propTypes = {
     firebaseKey: PropTypes.string,
     city: PropTypes.string,
     gender: PropTypes.string,
-    orientation: PropTypes.string,
+    sexuality: PropTypes.string,
     hourlyRt: PropTypes.string,
     instagram: PropTypes.string,
     availability: PropTypes.string,

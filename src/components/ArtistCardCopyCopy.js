@@ -30,22 +30,23 @@ export default function ArtistCard({
   // history.push(`/artists/${artist.firebaseKey}`);
   // };
 
-  const subtitleText = `${artist.gender}, ${artist.orientation}`;
+  const subtitleText = `${artist.gender}, ${artist.sexuality}`;
 
   return (
     <ImageList
       sx={{
-        width: 420,
-        height: 450,
+        width: 400,
+        height: 410,
         borderRadius: '10px',
       }}
       cols={1}
     >
-      <ImageListItem key="Subheader" cols={2} />
+      <ImageListItem key="Subheader" cols={1} />
       {/* {artist.map((artist) => ( */}
       <ImageListItem
         key={artist.firebaseKey}
         sx={{
+          height: 300,
         }}
       >
         <Link to={`/artists/${artist.firebaseKey}`}>
@@ -175,7 +176,7 @@ ArtistCard.propTypes = {
     firebaseKey: PropTypes.string,
     city: PropTypes.string,
     gender: PropTypes.string,
-    orientation: PropTypes.string,
+    sexuality: PropTypes.string,
     hourlyRt: PropTypes.string,
     instagram: PropTypes.string,
     availability: PropTypes.string,

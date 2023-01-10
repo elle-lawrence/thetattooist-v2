@@ -31,9 +31,9 @@ export default function SearchView({ user }) {
   const filterOptions = [
     { filterType: 'gender', label: 'male' },
     { filterType: 'gender', label: 'female' },
-    { filterType: 'gender', label: 'nonbinary' },
-    { filterType: 'orientation', label: 'queer' },
-    { filterType: 'orientation', label: 'straight' },
+    { filterType: 'gender', label: 'non-binary' },
+    { filterType: 'sexuality', label: 'queer' },
+    { filterType: 'sexuality', label: 'straight' },
   ];
 
   //
@@ -113,63 +113,52 @@ export default function SearchView({ user }) {
       <Box
         component="form"
         sx={{
-          '& .MuiTextField-root': { m: 1, width: '25ch' },
+          '& .MuiTextField-root': { m: 1, width: 400 },
         }}
         noValidate
         autoComplete="off"
       >
-        <div>
-          {/* <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} /> */}
-          <TextField
-            label="search name"
-            id="outlined-size-normal"
-            // defaultValue="search name"
-            size="normal"
-            style={{ width: 500 }}
-            margin="none"
-            onChange={handleSearch}
 
-          />
-        </div>
+        <TextField
+          label="search name"
+          id="outlined-size-normal"
+            // defaultValue="search name"
+          size="normal"
+          style={{ width: 400 }}
+          margin="none"
+          onChange={handleSearch}
+          sx={{ marginLeft: 5 }}
+        />
+
+        {/* **Gender Filter */}
+        <Autocomplete
+          multiple
+          id="checkboxes-tags-demo"
+          options={filterOptions}
+          disableCloseOnSelect
+          getOptionLabel={(option) => option.label}
+          groupBy={(option) => option.filterType}
+          renderOption={(props, option, { selected }) => (
+          // eslint-disable-next-line react/jsx-props-no-spreading
+            <li {...props}>
+              <Checkbox
+                icon={icon}
+                checkedIcon={checkedIcon}
+                style={{ marginRight: 8 }}
+                checked={selected}
+              />
+              {option.label}
+            </li>
+          )}
+          style={{ width: 400 }}
+          onChange={(event, value) => console.warn(value)}
+          renderInput={(params) => (
+          // eslint-disable-next-line react/jsx-props-no-spreading
+            <TextField {...params} label="filter" sx={{ marginLeft: 2 }} />
+          )}
+        />
       </Box>
-      {/* **Gender Filter */}
-      <Autocomplete
-        multiple
-        id="checkboxes-tags-demo"
-        options={filterOptions}
-        disableCloseOnSelect
-        getOptionLabel={(option) => option.label}
-        groupBy={(option) => option.filterType}
-        renderOption={(props, option, { selected }) => (
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          <li {...props}>
-            <Checkbox
-              icon={icon}
-              checkedIcon={checkedIcon}
-              style={{ marginRight: 8 }}
-              checked={selected}
-            />
-            {option.label}
-          </li>
-        )}
-        style={{ width: 400 }}
-        onChange={(event, value) => console.warn(value)}
-        renderInput={(params) => (
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          <TextField {...params} label="search by:" />
-        )}
-      />
-      {/* <div>
-        <GroupButtonStyling>
-          <SearchButtonGroup user={user} />
-        </GroupButtonStyling> */}
-      {/* <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} /> */}
-      {/* <RadioGender
-          setFilter={setFilter}
-          filter={filter}
-          resetFilter={resetFilter}
-        /> */}
-      {/* </div> */}
+
       <CardContainerStyling>
         {shownArtists.map((artist) => (
           <ArtistCard
